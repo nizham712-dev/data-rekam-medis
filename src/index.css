@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Token desain — "framed sheet": satu bingkai bernuansa medis,
+   lembar kerja putih, tanpa bayangan pada elemen yang sedang diam.
+   Warna aksen (teal) hanya pada data, logo, dan indikator tab aktif.
+   ------------------------------------------------------------------ */
+:root {
+  --frame: #eef3f2;
+  --surface: #ffffff;
+  --raised: #f7f9f9;
+  --active: #e6eaea;
+  --border: #e6ebea;
+  --rule: #eef1f0;
+  --control: #ccd4d2;
+  --text: #162421;
+  --muted: #5c6b68;
+  --faint: #5f6d6a;
+  --primary: #17211f;
+  --accent: #0f766e;
+  --accent-soft: #ebf5f3;
+  --positive: #247b50;
+  --negative: #c4242a;
+
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--frame);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', Inter, system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
