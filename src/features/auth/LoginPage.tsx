@@ -58,9 +58,9 @@ export function LoginPage() {
       <div className="hidden w-[46%] flex-col justify-between bg-frame px-10 py-10 lg:flex">
         <Brand />
         <div className="max-w-md">
-          <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em] text-ink">
+          <h2 className="text-[34px] font-semibold leading-tight tracking-[-0.02em] text-ink">
             Rekam medis yang rapi, keputusan yang lebih cepat.
-          </h1>
+          </h2>
           <p className="mt-4 text-[16px] leading-relaxed text-muted">
             satu tempat untuk pendaftaran pasien, antrean kunjungan, catatan SOAP, diagnosis, dan resep —
             dengan hak akses yang jelas untuk setiap peran.
@@ -77,7 +77,7 @@ export function LoginPage() {
           <div className="lg:hidden">
             <Brand />
           </div>
-          <h2 className="mt-8 text-title text-ink lg:mt-0">Masuk ke RekamMedis</h2>
+          <h1 className="mt-8 text-title text-ink lg:mt-0">Masuk ke RekamMedis</h1>
           <p className="mt-1.5 text-body text-muted">{clinicLabel()} · Area staf klinik</p>
 
           {isDemoMode ? (

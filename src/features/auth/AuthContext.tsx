@@ -71,7 +71,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isDemoMode) {
-      setUser(demoUserFor('admin'));
+      // Mode demo tetap memulai dari halaman login (pilih peran),
+      // bukan langsung masuk sebagai admin.
+      setUser(null);
       setIsLoading(false);
       return;
     }
