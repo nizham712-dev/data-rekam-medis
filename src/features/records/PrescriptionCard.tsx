@@ -105,7 +105,7 @@ export function PrescriptionCard({
                 <Input id="pres-dosage" placeholder="3x1 sesudah makan" {...form.register('dosage')} />
               </Field>
               <Field label="Jumlah" htmlFor="pres-qty" required error={form.formState.errors.quantity?.message}>
-                <Input id="pres-qty" type="number" min={1} {...form.register('quantity')} />
+                <Input id="pres-qty" type="number" min={1} {...form.register('quantity', { valueAsNumber: true })} />
               </Field>
             </div>
             <Field label="Catatan" htmlFor="pres-notes">

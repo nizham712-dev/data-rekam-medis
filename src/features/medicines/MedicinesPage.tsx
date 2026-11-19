@@ -126,7 +126,7 @@ export function MedicinesPage() {
             <Input id="med-form" placeholder="Tablet, kapsul, sirup…" {...form.register('dosageForm')} />
           </Field>
           <Field label="Stok" htmlFor="med-stock" required error={form.formState.errors.stock?.message}>
-            <Input id="med-stock" type="number" min={0} {...form.register('stock')} />
+            <Input id="med-stock" type="number" min={0} {...form.register('stock', { valueAsNumber: true })} />
           </Field>
           <div className="flex justify-end gap-2 border-t border-rule pt-4">
             <Button type="button" onClick={() => setOpen(false)}>Batal</Button>

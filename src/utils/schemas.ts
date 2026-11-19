@@ -21,12 +21,12 @@ export const patientSchema = z.object({
     .refine((value) => value <= today(), 'Tanggal lahir tidak boleh di masa depan'),
   gender: z.enum(['L', 'P']),
   bloodType: z.enum(['A', 'B', 'AB', 'O', 'Unknown']),
-  allergies: z.string().trim().max(300, 'Maksimal 300 karakter').optional().default(''),
+  allergies: z.string().trim().max(300, 'Maksimal 300 karakter'),
   phone: z
     .string()
     .trim()
     .regex(/^[0-9+\-\s]{8,20}$/, 'Nomor telepon tidak valid (8-20 karakter)'),
-  address: z.string().trim().max(300, 'Maksimal 300 karakter').optional().default(''),
+  address: z.string().trim().max(300, 'Maksimal 300 karakter'),
 });
 export type PatientFormValues = z.infer<typeof patientSchema>;
 
@@ -82,22 +82,22 @@ export type SoapFormValues = z.infer<typeof soapFormSchema>;
 export const prescriptionFormSchema = z.object({
   medicineName: z.string().trim().min(1, 'Nama obat wajib diisi').max(120),
   dosage: z.string().trim().min(1, 'Dosis wajib diisi').max(120),
-  quantity: z.coerce.number().int('Harus bilangan bulat').min(1, 'Minimal 1').max(999),
-  notes: optionalText(200).optional().default(''),
+  quantity: z.number().int('Harus bilangan bulat').min(1, 'Minimal 1').max(999),
+  notes: optionalText(200),
 });
 export type PrescriptionFormValues = z.infer<typeof prescriptionFormSchema>;
 
 export const medicineFormSchema = z.object({
   name: z.string().trim().min(1, 'Nama obat wajib diisi').max(120),
   dosageForm: z.string().trim().max(60),
-  stock: z.coerce.number().int('Harus bilangan bulat').min(0, 'Stok tidak boleh negatif'),
+  stock: z.number().int('Harus bilangan bulat').min(0, 'Stok tidak boleh negatif'),
 });
 export type MedicineFormValues = z.infer<typeof medicineFormSchema>;
 
 export const profileFormSchema = z.object({
   fullName: z.string().trim().min(2, 'Nama wajib diisi').max(100),
-  specialization: z.string().trim().max(100).optional().default(''),
-  sipNumber: z.string().trim().max(50).optional().default(''),
+  specialization: z.string().trim().max(100),
+  sipNumber: z.string().trim().max(50),
 });
 export type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
